@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup-page</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="main-container">
+
+        <div class="forms" >
+            <button id="back-Btn" onclick="backPage()"><img src="./images/icons8-back-50.png" alt="Back"></button>
+            <div>
+                <h2>Sign up</h2>
+            </div>
+            <div class="input-div">
+                <input type="text" name="username" id="username" required />
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="input-div">
+                <input type="email" name="email" id="email"  required/>
+                <span></span>
+                <label>Email</label>
+            </div>
+            <div class="input-div">
+                <input type="password" name="password" id="password" required />
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div class="input-div">
+                <input type="password" name="password" id="conf-password" required />
+                <span></span>
+                <label>Retype Password</label>
+            </div>
+            
+            <button onclick="signUp()" id="sign-up-btn" class="sign-up-btn">Sign up</button>
+
+            <p id="Error"></p>
+            
+
+
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
