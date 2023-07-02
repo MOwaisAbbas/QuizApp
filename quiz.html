@@ -15,33 +15,41 @@
 
     <div class="main-container">
         <div class="forms content">
-            <div>
+            <div onclick="startQuiz(this)" id="html">
                 <p>HTML</p>
                 <ul>
                     <li>Total 10 questions.</li>
                     <li>Each question carry equal marks.</li>
-                    <li>The duration of each question is 1:30 minutes.</li>
+                    <li>The duration of each question is 1:00 minutes.</li>
                 </ul>
             </div>
-            <div>
+            <div onclick="startQuiz(this)" id="css">
                 <p>CSS</p>
                 <ul>
                     <li>Total 10 questions.</li>
                     <li>Each question carry equal marks.</li>
-                    <li>The duration of each question is 1:30 minutes.</li>
+                    <li>The duration of each question is 1:00 minutes.</li>
                 </ul>
             </div>
-            <div>
+            <div onclick="startQuiz(this)" id="javascript">
                 <p>JavaScript</p>
                 <ul>
                     <li>Total 10 questions.</li>
                     <li>Each question carry equal marks.</li>
-                    <li>The duration of each question is 1:30 minutes.</li>
+                    <li>The duration of each question is 1:00 minutes.</li>
                 </ul>
             </div>
         </div>
+        <div class="forms key-div">
+            <div class="input-div">
+                <input type="text" name="key" id="key" required />
+                <span></span>
+                <label>Enter Key</label>
+            </div>
+            <button onclick="checkKey()" class="log-in-btn">Start Quiz</button>
+            <p id="Error"></p>
+        </div>
     </div>
-
     <script src="./app.js"></script>
 </body>
 

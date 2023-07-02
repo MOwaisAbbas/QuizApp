@@ -2,13 +2,14 @@
     --main: #001a3f;
     --secondary: #5346f5;
     --third: #002969;
+    --white: #ffffff;
 }
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    color: #fff;
+    color: var(--white);
     font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -31,9 +32,9 @@ body {
     transform: translate(-50%, -50%);
     width: 400px;
     height: 500px;
-    border-radius: 5%;
+    border-radius: 25px;
     background-color: var(--secondary);
-    border: 2px solid #fff;
+    border: 2px solid var(--white);
     padding: 0 40px;
 }
 
@@ -81,13 +82,13 @@ input {
     width: 0%;
     height: 2px;
     transition: .5s;
-    background: var(--main);
+    background: var(--white);
 }
 
 input:focus~label,
 input:valid~label {
     top: -5px;
-    color: var(--main);
+    color: var(--white);
 }
 
 input:focus~span::before,
@@ -109,7 +110,7 @@ input:valid~span::before {
 }
 
 #for-pas:hover {
-    color: var(--main);
+    color: var(--white);
     text-decoration: underline;
     transition: .2s;
 }
@@ -161,7 +162,7 @@ div p {
 #Error {
     margin: 10px 0;
     font-size: 15px;
-    color: #fff;
+    color: var(--white);
     text-align: center;
     width: 100%;
     display: block;
@@ -199,7 +200,7 @@ div p {
     list-style-type: none;
     font-weight: bold;
     font-size: 20px;
-    color: #ffffff;
+    color: var(--white);
     width: 33.3%;
 }
 
@@ -285,7 +286,7 @@ div>ul>li{
     .btn>span{
         width: 55px;
         height: 5px;
-        background-color: #fff;
+        background-color: var(--white);
         border-radius: 15%;
     }
 }
@@ -308,4 +309,8 @@ div>ul>li{
         font-size: 12px;
     }
 
+}
+div.key-div{
+    display: none;
+    height: 22vh;
 }

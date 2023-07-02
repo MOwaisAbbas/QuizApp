@@ -18,7 +18,7 @@ let signUp = () => {
     if (userName.trim() === "") {
 
         mcg.innerHTML = "Please Enter Username.";
-        if(!timer){
+        if (!timer) {
             timer = setInterval(() => {
                 mcg.innerHTML = "";
             }, 5000)
@@ -39,7 +39,7 @@ let signUp = () => {
                     getInfo.push(savedUser)
                     let sentInfo = localStorage.setItem("userData", JSON.stringify(getInfo))
                     mcg.innerHTML = "Registration Successful.";
-                    if(!timer){
+                    if (!timer) {
                         timer = setInterval(() => {
                             mcg.innerHTML = "";
                         }, 5000)
@@ -49,7 +49,7 @@ let signUp = () => {
                 else {
 
                     mcg.innerHTML = "Password Not Match.";
-                    if(!timer){
+                    if (!timer) {
                         timer = setInterval(() => {
                             mcg.innerHTML = "";
                         }, 5000)
@@ -58,7 +58,7 @@ let signUp = () => {
             }
             else {
                 mcg.innerHTML = "pasword contain one uppercase and one number.";
-                if(!timer){
+                if (!timer) {
                     timer = setInterval(() => {
                         mcg.innerHTML = "";
                     }, 5000)
@@ -68,7 +68,7 @@ let signUp = () => {
 
         else {
             mcg.innerHTML = "Enter valid email.";
-            if(!timer){
+            if (!timer) {
                 timer = setInterval(() => {
                     mcg.innerHTML = "";
                 }, 5000)
@@ -76,20 +76,6 @@ let signUp = () => {
         }
     }
 
-
-    // if ((/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/).test(email) && (/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{8,}$/).test(password) && password === confPassword) {
-    //     let getInfo = localStorage.getItem("userData")
-    //     if (!getInfo) {
-    //         getInfo = []
-
-    //     }
-    //     else {
-    //         getInfo = JSON.parse(getInfo)
-    //     }
-    //     getInfo.push(savedUser)
-    //     console.log(getInfo)
-    //     let sentInfo = localStorage.setItem("userData", JSON.stringify(getInfo))
-    // }
 
 };
 
@@ -115,7 +101,7 @@ let checkUser = () => {
     let getLocal = JSON.parse(localStorage.getItem("userData"))
     if (!getLocal) {
         mcg.innerHTML = "Please Register Yourself.";
-        if(!timer){
+        if (!timer) {
             timer = setInterval(() => {
                 mcg.innerHTML = "";
             }, 5000)
@@ -132,7 +118,7 @@ let checkUser = () => {
                 }
                 else {
                     mcg.innerHTML = "Please Enter correct password.";
-                    if(!timer){
+                    if (!timer) {
                         timer = setInterval(() => {
                             mcg.innerHTML = "";
                         }, 5000)
@@ -142,7 +128,7 @@ let checkUser = () => {
             }
             else {
                 mcg.innerHTML = "Please Enter correct Email.";
-                if(!timer){
+                if (!timer) {
                     timer = setInterval(() => {
                         mcg.innerHTML = "";
                     }, 5000)
@@ -153,4 +139,33 @@ let checkUser = () => {
 
 
     // console.log(getLocal, email.value)
+}
+//================================================================
+//===========================key==================================
+//================================================================
+let html = document.getElementById("html");
+let css = document.getElementById("css");
+let javascript = document.getElementById("javascript");
+
+
+let startQuiz = (element) => {
+    let div1 = document.getElementsByClassName("content")[0];
+    let div2 = document.getElementsByClassName("key-div")[0];
+    div1.style.display = "none"
+    div2.style.display = "inline-block"
+}
+let checkKey = () => {
+    let key = document.getElementById("key");
+    if (key.value === "owais@9001") {
+        console.log("correct")
+
+    }
+    else {
+        mcg.innerHTML = "Please Enter correct Email.";
+        if (!timer) {
+            timer = setInterval(() => {
+                mcg.innerHTML = "";
+            }, 5000)
+        }
+    }
 }
