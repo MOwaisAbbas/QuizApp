@@ -157,7 +157,7 @@ let startQuiz = (element) => {
 
 let checkKey = () => {
     let key = document.getElementById("key");
-    if (key.value === "1") {
+    if (key.value === "owais@9001") {
         let div1 = document.getElementsByClassName("content")[0];
         let div2 = document.getElementsByClassName("key-div")[0];
         let div3 = document.getElementsByClassName("questions")[0];
@@ -289,64 +289,64 @@ let htmlQuizQuestion = [
 ];
 let cssQuizQuestions = [
     {
-        question: "Which property is used to change the background color of an element in CSS?",
+        question: "1. Which property is used to change the background color of an element in CSS?",
         options: ["color", "background-color", "background"],
         answer: "background-color"
     },
     {
-        question: "Which CSS property is used to control the spacing between letters in a text?",
+        question: "2. Which CSS property is used to control the spacing between letters in a text?",
         options: ["text-spacing", "letter-spacing", "word-spacing"],
         answer: "letter-spacing"
     },
     {
-        question: "Which CSS property is used to add shadows to elements?",
+        question: "3. Which CSS property is used to add shadows to elements?",
         options: ["shadow", "text-shadow", "box-shadow"],
         answer: "box-shadow"
     },
     {
-        question: "Which CSS property is used to apply a font style to an element?",
+        question: "4. Which CSS property is used to apply a font style to an element?",
         options: ["font-family", "font-style", "font-variant"],
         answer: "font-style"
     },
     {
-        question: "Which CSS property is used to control the size of an element's border?",
+        question: "5. Which CSS property is used to control the size of an element's border?",
         options: ["border-size", "border-width", "border-style"],
         answer: "border-width"
     },
     {
-        question: "Which CSS property is used to position an element relative to its normal position?",
+        question: "6. Which CSS property is used to position an element relative to its normal position?",
         options: ["position", "top", "left"],
         answer: "position"
     },
     {
-        question: "Which CSS property is used to make the text in an element bold?",
+        question: "7. Which CSS property is used to make the text in an element bold?",
         options: ["font-weight", "text-style", "font-bold"],
         answer: "font-weight"
     },
     {
-        question: "Which CSS property is used to specify the space between lines in a paragraph?",
+        question: "8. Which CSS property is used to specify the space between lines in a paragraph?",
         options: ["line-height", "line-spacing", "text-spacing"],
         answer: "line-height"
     },
     {
-        question: "Which CSS property is used to add rounded corners to an element?",
+        question: "9. Which CSS property is used to add rounded corners to an element?",
         options: ["border-radius", "corner-radius", "rounded-corners"],
         answer: "border-radius"
     },
     {
-        question: "Which CSS property is used to control the visibility of an element?",
+        question: "10. Which CSS property is used to control the visibility of an element?",
         options: ["display", "visible", "visibility"],
         answer: "visibility"
     },
     {
-        question: "Which CSS property is used to control the visibility of an element?",
+        question: "10. Which CSS property is used to control the visibility of an element?",
         options: ["display", "visible", "visibility"],
         answer: "visibility"
     }
 ];
 let javascriptQuizQuestion = [
     {
-        question: "What is JavaScript?",
+        question: "1. What is JavaScript?",
         options: [
             "A programming language used for client-side scripting",
             "A markup language used for structuring web content",
@@ -355,22 +355,22 @@ let javascriptQuizQuestion = [
         answer: "A programming language used for client-side scripting"
     },
     {
-        question: "Which keyword is used to declare variables in JavaScript?",
+        question: "2. Which keyword is used to declare variables in JavaScript?",
         options: ["let", "var", "const"],
         answer: "var"
     },
     {
-        question: "What is the output of the following code?\nconsole.log(2 + '2');",
+        question: "3. What is the output of the following code?\nconsole.log(2 + '2');",
         options: ["4", "22", "'22'"],
         answer: "'22'"
     },
     {
-        question: "Which of the following is not a JavaScript data type?",
+        question: "4. Which of the following is not a JavaScript data type?",
         options: ["String", "Boolean", "Float"],
         answer: "Float"
     },
     {
-        question: "What is the correct way to write a comment in JavaScript?",
+        question: "5. What is the correct way to write a comment in JavaScript?",
         options: [
             "// This is a comment",
             "/* This is a comment */",
@@ -379,22 +379,22 @@ let javascriptQuizQuestion = [
         answer: "// This is a comment"
     },
     {
-        question: "Which method is used to add an element to the end of an array in JavaScript?",
+        question: "6. Which method is used to add an element to the end of an array in JavaScript?",
         options: ["push()", "pop()", "concat()"],
         answer: "push()"
     },
     {
-        question: "What does the 'typeof' operator return?",
+        question: "7. What does the 'typeof' operator return?",
         options: ["The data type of a variable", "The value of a variable", "The length of a variable"],
         answer: "The data type of a variable"
     },
     {
-        question: "Which function is used to parse a string and return an integer in JavaScript?",
+        question: "8. Which function is used to parse a string and return an integer in JavaScript?",
         options: ["parseInt()", "parseFloat()", "toString()"],
         answer: "parseInt()"
     },
     {
-        question: "What is the purpose of the 'querySelectorAll()' method in JavaScript?",
+        question: "9. What is the purpose of the 'querySelectorAll()' method in JavaScript?",
         options: [
             "To select and return the first element that matches a CSS selector",
             "To select and return all elements that match a CSS selector",
@@ -403,10 +403,16 @@ let javascriptQuizQuestion = [
         answer: "To select and return all elements that match a CSS selector"
     },
     {
-        question: "What is the result of the following expression?\n3 + 2 + '7';",
+        question: "10. What is the result of the following expression?\n3 + 2 + '7';",
         options: ["'327'", "12", "57"],
         answer: "'57'"
     },
+    {
+        question: "What is the result of the following expression?\n3 + 2 + '7';",
+        options: ["'327'", "12", "57"],
+        answer: "'57'"
+    }
+    ,
     {
         question: "What is the result of the following expression?\n3 + 2 + '7';",
         options: ["'327'", "12", "57"],
@@ -429,100 +435,151 @@ let score = 0;
 let starthtmlquiz = () => {
 
 
-    if (index !== htmlQuizQuestion.length) {
-        document.getElementById("but").setAttribute('onclick', "starthtmlquiz()")
-        document.getElementById("nam").innerText = "HTML";
-        document.querySelector(".material>p").innerText = htmlQuizQuestion[index].question;
-        document.querySelector("#op1").innerText = htmlQuizQuestion[index].options[0];
-        document.querySelector("#op2").innerText = htmlQuizQuestion[index].options[1];
-        document.querySelector("#op3").innerText = htmlQuizQuestion[index].options[2];
-        let radios = document.querySelectorAll("input[type = 'radio']")
+    document.getElementById("but").setAttribute('onclick', "starthtmlquiz()")
+    document.getElementById("nam").innerText = "HTML";
+    document.querySelector(".material>p").innerText = htmlQuizQuestion[index].question;
+    document.querySelector("#op1").innerText = htmlQuizQuestion[index].options[0];
+    document.querySelector("#op2").innerText = htmlQuizQuestion[index].options[1];
+    document.querySelector("#op3").innerText = htmlQuizQuestion[index].options[2];
+    let radios = document.querySelectorAll("input[type = 'radio']")
 
-        for (let i = 0; i < radios.length; i++) {
-            if (radios[i].checked) {
-                let userAns = htmlQuizQuestion[index - 1].options[i]
-                let corAns = htmlQuizQuestion[index - 1].answer;
-                if (userAns === corAns) {
-                    score++
-                    console.log("correct")
-                }
-
+    for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            let userAns = htmlQuizQuestion[index - 1].options[i]
+            let corAns = htmlQuizQuestion[index - 1].answer;
+            if (userAns === corAns) {
+                score++
+                console.log("correct")
             }
-            radios[i].checked = false;
+
         }
+        radios[i].checked = false;
+    }
+    index++
+    if (index < htmlQuizQuestion.length) {
+
         document.getElementById("but").disabled = true;
 
-        index++
     }
     else {
-        console.log(score)
+        printScore(score)
     }
-
 }
 let startcssquiz = () => {
+    // let sc = 1
+    // let timer = document.getElementById("timer");
+    // let inter = setInterval(() => {
+    //     if (sc < 10) {
 
+    //         timer.innerHTML = `00:0${sc}`
+    //     }
+    //     else {
 
-    if (index !== cssQuizQuestions.length) {
-        document.getElementById("but").setAttribute('onclick', "startcssquiz()")
-        document.getElementById("nam").innerText = "HTML";
-        document.querySelector(".material>p").innerText = cssQuizQuestions[index].question;
-        document.querySelector("#op1").innerText = cssQuizQuestions[index].options[0];
-        document.querySelector("#op2").innerText = cssQuizQuestions[index].options[1];
-        document.querySelector("#op3").innerText = cssQuizQuestions[index].options[2];
-        let radios = document.querySelectorAll("input[type = 'radio']")
+    //         timer.innerHTML = `00:${sc}`
+    //     }
+    //     sc--
+    //     if (sc < 0) {
+    //         cler()
+            
 
-        for (let i = 0; i < radios.length; i++) {
-            if (radios[i].checked) {
-                let userAns = cssQuizQuestions[index - 1].options[i]
-                let corAns = cssQuizQuestions[index - 1].answer;
-                if (userAns === corAns) {
-                    score++
-                    console.log("correct")
-                }
+    //     }
+        
+    // }, 1000)
+    // let cler = ()=>{
+    //     clearInterval(inter)
+    //     startcssquiz()
+    // }
 
+    document.getElementById("but").setAttribute('onclick', "startcssquiz()")
+    document.getElementById("nam").innerText = "CSS";
+    document.querySelector(".material>p").innerText = cssQuizQuestions[index].question;
+    document.querySelector("#op1").innerText = cssQuizQuestions[index].options[0];
+    document.querySelector("#op2").innerText = cssQuizQuestions[index].options[1];
+    document.querySelector("#op3").innerText = cssQuizQuestions[index].options[2];
+    let radios = document.querySelectorAll("input[type = 'radio']")
+
+    for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            let userAns = cssQuizQuestions[index - 1].options[i]
+            let corAns = cssQuizQuestions[index - 1].answer;
+            if (userAns === corAns) {
+                score++
+                console.log("correct")
             }
-            radios[i].checked = false;
+
         }
+        radios[i].checked = false;
+    }
+    index++
+    if (index < htmlQuizQuestion.length) {
+
         document.getElementById("but").disabled = true;
 
-        index++
     }
     else {
-        console.log(score)
+        printScore(score)
     }
 
 }
 let startjsquiz = () => {
-    
-    if (index !== javascriptQuizQuestion.length) {
-        document.getElementById("but").setAttribute('onclick', "startjsquiz()")
-        document.getElementById("nam").innerText = "HTML";
-        document.querySelector(".material>p").innerText = javascriptQuizQuestion[index].question;
-        document.querySelector("#op1").innerText = javascriptQuizQuestion[index].options[0];
-        document.querySelector("#op2").innerText = javascriptQuizQuestion[index].options[1];
-        document.querySelector("#op3").innerText = javascriptQuizQuestion[index].options[2];
-        let radios = document.querySelectorAll("input[type = 'radio']")
 
-        for (let i = 0; i < radios.length; i++) {
-            if (radios[i].checked) {
-                let userAns = javascriptQuizQuestion[index - 1].options[i]
-                let corAns = javascriptQuizQuestion[index - 1].answer;
-                if (userAns === corAns) {
-                    score++
-                    console.log("correct")
-                }
+    document.getElementById("but").setAttribute('onclick', "startjsquiz()")
+    document.getElementById("nam").innerText = "JavaScript";
+    document.querySelector(".material>p").innerText = javascriptQuizQuestion[index].question;
+    document.querySelector("#op1").innerText = javascriptQuizQuestion[index].options[0];
+    document.querySelector("#op2").innerText = javascriptQuizQuestion[index].options[1];
+    document.querySelector("#op3").innerText = javascriptQuizQuestion[index].options[2];
+    let radios = document.querySelectorAll("input[type = 'radio']")
 
+    for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+            let userAns = javascriptQuizQuestion[index - 1].options[i]
+            let corAns = javascriptQuizQuestion[index - 1].answer;
+            if (userAns === corAns) {
+                score++
+                console.log("correct")
             }
-            radios[i].checked = false;
+
         }
+        radios[i].checked = false;
+    }
+    index++
+    if (index < javascriptQuizQuestion.length) {
+
         document.getElementById("but").disabled = true;
 
-        index++
     }
     else {
-        console.log(score)
+        printScore(score)
     }
+
+
 }
 let disab = () => {
     document.getElementById("but").disabled = false;
+}
+let printScore = (score) => {
+    let div1 = document.getElementsByClassName("content")[0];
+    let div2 = document.getElementsByClassName("key-div")[0];
+    let div3 = document.getElementsByClassName("questions")[0];
+    let div4 = document.getElementsByClassName("sccore")[0];
+    div1.style.display = "none"
+    div2.style.display = "none"
+    div3.style.display = "none"
+    div4.style.display = "flex"
+    div4.innerHTML = `
+    <h1>Score<br />${score}/10</h1>
+    <button onclick="backToHome()">Home</button>`
+}
+let backToHome = () => {
+    let div1 = document.getElementsByClassName("content")[0];
+    let div2 = document.getElementsByClassName("key-div")[0];
+    let div3 = document.getElementsByClassName("questions")[0];
+    let div4 = document.getElementsByClassName("sccore")[0];
+    div1.style.display = "flex"
+    div2.style.display = "none"
+    div3.style.display = "none"
+    div4.style.display = "none"
+
+
 }
