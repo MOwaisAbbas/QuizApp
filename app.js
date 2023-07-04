@@ -97,7 +97,6 @@ let backPage = () => {
 
 
 let checkUser = () => {
-    console.log(mcg)
     let getLocal = JSON.parse(localStorage.getItem("userData"))
     if (!getLocal) {
         mcg.innerHTML = "Please Register Yourself.";
@@ -138,7 +137,6 @@ let checkUser = () => {
     }
 
 
-    // console.log(getLocal, email.value)
 }
 //================================================================
 //===========================key==================================
@@ -164,6 +162,7 @@ let checkKey = () => {
         div1.style.display = "none"
         div2.style.display = "none"
         div3.style.display = "flex"
+        document.documentElement.requestFullscreen();
         start()
     }
     else if ((key.value).trim() === "") {
@@ -434,6 +433,22 @@ let index = 0;
 let score = 0;
 let starthtmlquiz = () => {
 
+    let sc = 5
+    let timer = document.getElementById("timer");
+    let interr = setInterval(() => {
+        if (sc < 10) {
+            timer.innerHTML = `00:0${sc}`
+        }
+        else {
+            timer.innerHTML = `00:${sc}`
+        }
+        sc--
+        if (sc === -1) {
+            starthtmlquiz()
+            clearInterval(interr)
+        }
+        console.log(sc)
+    }, 1000)
 
     document.getElementById("but").setAttribute('onclick', "starthtmlquiz()")
     document.getElementById("nam").innerText = "HTML";
@@ -449,7 +464,6 @@ let starthtmlquiz = () => {
             let corAns = htmlQuizQuestion[index - 1].answer;
             if (userAns === corAns) {
                 score++
-                console.log("correct")
             }
 
         }
@@ -462,33 +476,30 @@ let starthtmlquiz = () => {
 
     }
     else {
+        clearInterval(interr)
         printScore(score)
+        index = 0;
+        score = 0;
     }
 }
 let startcssquiz = () => {
-    // let sc = 1
-    // let timer = document.getElementById("timer");
-    // let inter = setInterval(() => {
-    //     if (sc < 10) {
 
-    //         timer.innerHTML = `00:0${sc}`
-    //     }
-    //     else {
-
-    //         timer.innerHTML = `00:${sc}`
-    //     }
-    //     sc--
-    //     if (sc < 0) {
-    //         cler()
-            
-
-    //     }
-        
-    // }, 1000)
-    // let cler = ()=>{
-    //     clearInterval(inter)
-    //     startcssquiz()
-    // }
+    let sc = 5
+    let timer = document.getElementById("timer");
+    let interr = setInterval(() => {
+        if (sc < 10) {
+            timer.innerHTML = `00:0${sc}`
+        }
+        else {
+            timer.innerHTML = `00:${sc}`
+        }
+        sc--
+        if (sc === -1) {
+            startcssquiz()
+            clearInterval(interr)
+        }
+        console.log(sc)
+    }, 1000)
 
     document.getElementById("but").setAttribute('onclick', "startcssquiz()")
     document.getElementById("nam").innerText = "CSS";
@@ -504,7 +515,6 @@ let startcssquiz = () => {
             let corAns = cssQuizQuestions[index - 1].answer;
             if (userAns === corAns) {
                 score++
-                console.log("correct")
             }
 
         }
@@ -517,11 +527,30 @@ let startcssquiz = () => {
 
     }
     else {
+        clearInterval(interr)
         printScore(score)
+        index = 0;
+        score = 0;
     }
 
 }
 let startjsquiz = () => {
+    let sc = 5
+    let timer = document.getElementById("timer");
+    let interr = setInterval(() => {
+        if (sc < 10) {
+            timer.innerHTML = `00:0${sc}`
+        }
+        else {
+            timer.innerHTML = `00:${sc}`
+        }
+        sc--
+        if (sc === -1) {
+            startjsquiz()
+            clearInterval(interr)
+        }
+        console.log(sc)
+    }, 1000)
 
     document.getElementById("but").setAttribute('onclick', "startjsquiz()")
     document.getElementById("nam").innerText = "JavaScript";
@@ -537,7 +566,6 @@ let startjsquiz = () => {
             let corAns = javascriptQuizQuestion[index - 1].answer;
             if (userAns === corAns) {
                 score++
-                console.log("correct")
             }
 
         }
@@ -550,7 +578,10 @@ let startjsquiz = () => {
 
     }
     else {
+        clearInterval(interr)
         printScore(score)
+        score = 0;
+        index = 0;
     }
 
 
@@ -568,7 +599,7 @@ let printScore = (score) => {
     div3.style.display = "none"
     div4.style.display = "flex"
     div4.innerHTML = `
-    <h1>Score<br />${score}/10</h1>
+    <h1>Score<br />${(score/10)*100}%</h1>
     <button onclick="backToHome()">Home</button>`
 }
 let backToHome = () => {
@@ -580,6 +611,7 @@ let backToHome = () => {
     div2.style.display = "none"
     div3.style.display = "none"
     div4.style.display = "none"
+    document.exitFullscreen();
 
 
 }

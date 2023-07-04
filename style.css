@@ -3,6 +3,7 @@
     --secondary: #5346f5;
     --third: #002969;
     --white: #ffffff;
+    --red: #fd4c00;
 }
 
 * {
@@ -162,7 +163,7 @@ div p {
 #Error {
     margin: 10px 0;
     font-size: 15px;
-    color: var(--white);
+    color: var(--red);
     text-align: center;
     width: 100%;
     display: block;
@@ -273,7 +274,7 @@ div.key-div {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 70%;
-    height: 60vh;
+    height: 70vh;
     border-radius: 25px;
     background-color: var(--secondary);
     border: 4px solid var(--white);
