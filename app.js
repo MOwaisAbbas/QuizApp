@@ -431,24 +431,29 @@ let start = () => {
 }
 let index = 0;
 let score = 0;
+let interr = false
 let starthtmlquiz = () => {
 
-    let sc = 5
+    let sc = 59
     let timer = document.getElementById("timer");
-    let interr = setInterval(() => {
-        if (sc < 10) {
-            timer.innerHTML = `00:0${sc}`
-        }
-        else {
-            timer.innerHTML = `00:${sc}`
-        }
-        sc--
-        if (sc === -1) {
-            starthtmlquiz()
-            clearInterval(interr)
-        }
-        console.log(sc)
-    }, 1000)
+    if (!interr) {
+
+        interr = setInterval(() => {
+            if (sc < 10) {
+                timer.innerHTML = `00:0${sc}`
+            }
+            else {
+                timer.innerHTML = `00:${sc}`
+            }
+            sc--
+            if (sc === -1) {
+                starthtmlquiz()
+                clearInterval(interr)
+                interr = false;
+            }
+            console.log(sc)
+        }, 1000)
+    }
 
     document.getElementById("but").setAttribute('onclick', "starthtmlquiz()")
     document.getElementById("nam").innerText = "HTML";
@@ -481,25 +486,42 @@ let starthtmlquiz = () => {
         index = 0;
         score = 0;
     }
+
+    function exitFullscreenHandler() {
+        if (!document.fullscreenElement) {
+
+            printScore(score)
+        }
+    }
+
+    document.addEventListener("fullscreenchange", exitFullscreenHandler);
+
+
+
+
 }
 let startcssquiz = () => {
 
-    let sc = 5
+    let sc = 59
     let timer = document.getElementById("timer");
-    let interr = setInterval(() => {
-        if (sc < 10) {
-            timer.innerHTML = `00:0${sc}`
-        }
-        else {
-            timer.innerHTML = `00:${sc}`
-        }
-        sc--
-        if (sc === -1) {
-            startcssquiz()
-            clearInterval(interr)
-        }
-        console.log(sc)
-    }, 1000)
+    if (!interr) {
+
+        interr = setInterval(() => {
+            if (sc < 10) {
+                timer.innerHTML = `00:0${sc}`
+            }
+            else {
+                timer.innerHTML = `00:${sc}`
+            }
+            sc--
+            if (sc === -1) {
+                startcssquiz()
+                clearInterval(interr)
+                interr = false
+            }
+            console.log(sc)
+        }, 1000)
+    }
 
     document.getElementById("but").setAttribute('onclick', "startcssquiz()")
     document.getElementById("nam").innerText = "CSS";
@@ -532,25 +554,36 @@ let startcssquiz = () => {
         index = 0;
         score = 0;
     }
+    function exitFullscreenHandler() {
+        if (!document.fullscreenElement) {
 
+            printScore(score)
+        }
+    }
+
+    document.addEventListener("fullscreenchange", exitFullscreenHandler);
 }
 let startjsquiz = () => {
-    let sc = 5
+    let sc = 59
     let timer = document.getElementById("timer");
-    let interr = setInterval(() => {
-        if (sc < 10) {
-            timer.innerHTML = `00:0${sc}`
-        }
-        else {
-            timer.innerHTML = `00:${sc}`
-        }
-        sc--
-        if (sc === -1) {
-            startjsquiz()
-            clearInterval(interr)
-        }
-        console.log(sc)
-    }, 1000)
+    if (!interr) {
+
+        interr = setInterval(() => {
+            if (sc < 10) {
+                timer.innerHTML = `00:0${sc}`
+            }
+            else {
+                timer.innerHTML = `00:${sc}`
+            }
+            sc--
+            if (sc === -1) {
+                startjsquiz()
+                clearInterval(interr)
+                interr = false
+            }
+            console.log(sc)
+        }, 1000)
+    }
 
     document.getElementById("but").setAttribute('onclick', "startjsquiz()")
     document.getElementById("nam").innerText = "JavaScript";
@@ -584,7 +617,14 @@ let startjsquiz = () => {
         index = 0;
     }
 
+    function exitFullscreenHandler() {
+        if (!document.fullscreenElement) {
 
+            printScore(score)
+        }
+    }
+
+    document.addEventListener("fullscreenchange", exitFullscreenHandler);
 }
 let disab = () => {
     document.getElementById("but").disabled = false;
@@ -599,7 +639,7 @@ let printScore = (score) => {
     div3.style.display = "none"
     div4.style.display = "flex"
     div4.innerHTML = `
-    <h1>Score<br />${(score/10)*100}%</h1>
+    <h1>Score<br />${(score / 10) * 100}%</h1>
     <button onclick="backToHome()">Home</button>`
 }
 let backToHome = () => {
