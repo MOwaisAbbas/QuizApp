@@ -431,30 +431,24 @@ let start = () => {
 }
 let index = 0;
 let score = 0;
-let interr = false
 let starthtmlquiz = () => {
-
+   
     let sc = 59
     let timer = document.getElementById("timer");
-    if (!interr) {
-
-        interr = setInterval(() => {
-            if (sc < 10) {
-                timer.innerHTML = `00:0${sc}`
-            }
-            else {
-                timer.innerHTML = `00:${sc}`
-            }
-            sc--
-            if (sc === -1) {
-                starthtmlquiz()
-                clearInterval(interr)
-                interr = false;
-            }
-            console.log(sc)
-        }, 1000)
-    }
-
+    let interr = setInterval(() => {
+        if (sc < 10) {
+            timer.innerHTML = `00:0${sc}`
+        }
+        else {
+            timer.innerHTML = `00:${sc}`
+        }
+        sc--
+        if (sc < 0) {
+            starthtmlquiz()
+            clearInterval(interr)
+        }
+        console.log(sc)
+    }, 1000)
     document.getElementById("but").setAttribute('onclick', "starthtmlquiz()")
     document.getElementById("nam").innerText = "HTML";
     document.querySelector(".material>p").innerText = htmlQuizQuestion[index].question;
@@ -504,25 +498,20 @@ let startcssquiz = () => {
 
     let sc = 59
     let timer = document.getElementById("timer");
-    if (!interr) {
-
-        interr = setInterval(() => {
-            if (sc < 10) {
-                timer.innerHTML = `00:0${sc}`
-            }
-            else {
-                timer.innerHTML = `00:${sc}`
-            }
-            sc--
-            if (sc === -1) {
-                startcssquiz()
-                clearInterval(interr)
-                interr = false
-            }
-            console.log(sc)
-        }, 1000)
-    }
-
+    let interr = setInterval(() => {
+        if (sc < 10) {
+            timer.innerHTML = `00:0${sc}`
+        }
+        else {
+            timer.innerHTML = `00:${sc}`
+        }
+        sc--
+        if (sc < 0) {
+            startcssquiz()
+            clearInterval(interr)
+        }
+        console.log(sc)
+    }, 1000)
     document.getElementById("but").setAttribute('onclick', "startcssquiz()")
     document.getElementById("nam").innerText = "CSS";
     document.querySelector(".material>p").innerText = cssQuizQuestions[index].question;
@@ -566,24 +555,20 @@ let startcssquiz = () => {
 let startjsquiz = () => {
     let sc = 59
     let timer = document.getElementById("timer");
-    if (!interr) {
-
-        interr = setInterval(() => {
-            if (sc < 10) {
-                timer.innerHTML = `00:0${sc}`
-            }
-            else {
-                timer.innerHTML = `00:${sc}`
-            }
-            sc--
-            if (sc === -1) {
-                startjsquiz()
-                clearInterval(interr)
-                interr = false
-            }
-            console.log(sc)
-        }, 1000)
-    }
+    let interr = setInterval(() => {
+        if (sc < 10) {
+            timer.innerHTML = `00:0${sc}`
+        }
+        else {
+            timer.innerHTML = `00:${sc}`
+        }
+        sc--
+        if (sc < 0) {
+            startjsquiz()
+            clearInterval(interr)
+        }
+        console.log(sc)
+    }, 1000)
 
     document.getElementById("but").setAttribute('onclick', "startjsquiz()")
     document.getElementById("nam").innerText = "JavaScript";
