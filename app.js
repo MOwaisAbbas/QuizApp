@@ -138,6 +138,21 @@ let checkUser = () => {
 
 
 }
+let show = false;
+let showPass = (element) => {
+    let ele = element.parentNode.childNodes[1]
+    if (!show) {
+        element.setAttribute("src", "./images/icons8-hide-password-24.png")
+        ele.setAttribute("type", "text")
+        show = true
+    }
+    else if (show) {
+        element.setAttribute("src", "./images/icons8-eye-24.png")
+        ele.setAttribute("type", "password")
+        show = false
+    }
+}
+
 //================================================================
 //===========================key==================================
 //================================================================
@@ -166,7 +181,7 @@ let checkKey = () => {
         start()
     }
     else if ((key.value).trim() === "") {
-        mcg.innerHTML = "Please Enter 'owais@9001'.";
+        mcg.innerHTML = "Please Enter owais@9001";
         if (!timer) {
             timer = setInterval(() => {
                 mcg.innerHTML = "";
@@ -174,7 +189,7 @@ let checkKey = () => {
         }
     }
     else if (key.value !== "owais@9001") {
-        mcg.innerHTML = "Please Enter 'owais@9001'.";
+        mcg.innerHTML = "Please Enter owais@9001";
         if (!timer) {
             timer = setInterval(() => {
                 mcg.innerHTML = "";
@@ -275,15 +290,6 @@ let htmlQuizQuestion = [
             "<division>"
         ],
         answer: "<div>"
-    },
-    {
-        question: "10. Which tag is used to define a division or a section in HTML?",
-        options: [
-            "<div>",
-            "<section>",
-            "<division>"
-        ],
-        answer: "<div>"
     }
 ];
 let cssQuizQuestions = [
@@ -331,11 +337,6 @@ let cssQuizQuestions = [
         question: "9. Which CSS property is used to add rounded corners to an element?",
         options: ["border-radius", "corner-radius", "rounded-corners"],
         answer: "border-radius"
-    },
-    {
-        question: "10. Which CSS property is used to control the visibility of an element?",
-        options: ["display", "visible", "visibility"],
-        answer: "visibility"
     },
     {
         question: "10. Which CSS property is used to control the visibility of an element?",
@@ -405,18 +406,8 @@ let javascriptQuizQuestion = [
         question: "10. What is the result of the following expression?\n3 + 2 + '7';",
         options: ["'327'", "12", "57"],
         answer: "'57'"
-    },
-    {
-        question: "What is the result of the following expression?\n3 + 2 + '7';",
-        options: ["'327'", "12", "57"],
-        answer: "'57'"
     }
-    ,
-    {
-        question: "What is the result of the following expression?\n3 + 2 + '7';",
-        options: ["'327'", "12", "57"],
-        answer: "'57'"
-    }
+
 ];
 let start = () => {
     if (kiaAya.getAttributeNode("id").value === "html") {
@@ -429,187 +420,230 @@ let start = () => {
         startjsquiz()
     }
 }
+
+
 let index = 0;
 let score = 0;
-let starthtmlquiz = () => {
-   
-    let sc = 59
-    let timer = document.getElementById("timer");
-    let interr = setInterval(() => {
-        if (sc < 10) {
-            timer.innerHTML = `00:0${sc}`
-        }
-        else {
-            timer.innerHTML = `00:${sc}`
-        }
-        sc--
-        if (sc < 0) {
-            starthtmlquiz()
-            clearInterval(interr)
-        }
-        console.log(sc)
-    }, 1000)
-    document.getElementById("but").setAttribute('onclick', "starthtmlquiz()")
-    document.getElementById("nam").innerText = "HTML";
-    document.querySelector(".material>p").innerText = htmlQuizQuestion[index].question;
-    document.querySelector("#op1").innerText = htmlQuizQuestion[index].options[0];
-    document.querySelector("#op2").innerText = htmlQuizQuestion[index].options[1];
-    document.querySelector("#op3").innerText = htmlQuizQuestion[index].options[2];
+let second = 59;
+let timerID = null
+const checkAnshtml = () => {
     let radios = document.querySelectorAll("input[type = 'radio']")
 
     for (let i = 0; i < radios.length; i++) {
         if (radios[i].checked) {
+            console.log(htmlQuizQuestion[index - 1].options[i], htmlQuizQuestion[index - 1].answer)
             let userAns = htmlQuizQuestion[index - 1].options[i]
             let corAns = htmlQuizQuestion[index - 1].answer;
             if (userAns === corAns) {
                 score++
             }
-
+            document.getElementById("but").disabled = true;
         }
         radios[i].checked = false;
     }
-    index++
-    if (index < htmlQuizQuestion.length) {
+}
+const printQuizhtml = () => {
 
-        document.getElementById("but").disabled = true;
+
+    if (index < htmlQuizQuestion.length) {
+        document.getElementById("but").setAttribute('onclick', "starthtmlquiz()")
+        document.getElementById("nam").innerText = "HTML";
+        document.querySelector(".material>p").innerText = htmlQuizQuestion[index].question;
+        document.querySelector("#op1").innerText = htmlQuizQuestion[index].options[0];
+        document.querySelector("#op2").innerText = htmlQuizQuestion[index].options[1];
+        document.querySelector("#op3").innerText = htmlQuizQuestion[index].options[2];
+
+
+
+        second = 59
+        index++
 
     }
     else {
-        clearInterval(interr)
+        stopTimer()
         printScore(score)
-        index = 0;
-        score = 0;
-    }
 
+    }
     function exitFullscreenHandler() {
         if (!document.fullscreenElement) {
-
+            stopTimer()
             printScore(score)
         }
     }
 
     document.addEventListener("fullscreenchange", exitFullscreenHandler);
+};
 
+const startTimer = () => {
 
-
-
-}
-let startcssquiz = () => {
-
-    let sc = 59
-    let timer = document.getElementById("timer");
-    let interr = setInterval(() => {
-        if (sc < 10) {
-            timer.innerHTML = `00:0${sc}`
+    let timer = () => {
+        if (second < 10) {
+            document.getElementById("time").innerHTML = `00:0${second}`
         }
         else {
-            timer.innerHTML = `00:${sc}`
+            document.getElementById("time").innerHTML = `00:${second}`
         }
-        sc--
-        if (sc < 0) {
-            startcssquiz()
-            clearInterval(interr)
+        second--
+        if (second < 0) {
+            second = 10
+            starthtmlquiz()
         }
-        console.log(sc)
-    }, 1000)
-    document.getElementById("but").setAttribute('onclick', "startcssquiz()")
-    document.getElementById("nam").innerText = "CSS";
-    document.querySelector(".material>p").innerText = cssQuizQuestions[index].question;
-    document.querySelector("#op1").innerText = cssQuizQuestions[index].options[0];
-    document.querySelector("#op2").innerText = cssQuizQuestions[index].options[1];
-    document.querySelector("#op3").innerText = cssQuizQuestions[index].options[2];
+        console.log(second)
+    }
+    timerID = setInterval(timer, 1000)
+};
+const stopTimer = () => {
+    clearInterval(timerID)
+}
+let starthtmlquiz = () => {
+    stopTimer()
+    startTimer()
+    checkAnshtml()
+    printQuizhtml()
+}
+
+const checkAnscss = () => {
     let radios = document.querySelectorAll("input[type = 'radio']")
 
     for (let i = 0; i < radios.length; i++) {
         if (radios[i].checked) {
+            console.log(cssQuizQuestions[index - 1].options[i], cssQuizQuestions[index - 1].answer)
             let userAns = cssQuizQuestions[index - 1].options[i]
             let corAns = cssQuizQuestions[index - 1].answer;
             if (userAns === corAns) {
                 score++
             }
-
+            document.getElementById("but").disabled = true;
         }
         radios[i].checked = false;
     }
-    index++
-    if (index < htmlQuizQuestion.length) {
+}
+const printQuizcss = () => {
 
-        document.getElementById("but").disabled = true;
+
+    if (index < cssQuizQuestions.length) {
+        document.getElementById("but").setAttribute('onclick', "cssQuizQuestions()")
+        document.getElementById("nam").innerText = "CSS";
+        document.querySelector(".material>p").innerText = cssQuizQuestions[index].question;
+        document.querySelector("#op1").innerText = cssQuizQuestions[index].options[0];
+        document.querySelector("#op2").innerText = cssQuizQuestions[index].options[1];
+        document.querySelector("#op3").innerText = cssQuizQuestions[index].options[2];
+
+
+
+        second = 59
+        index++
 
     }
     else {
-        clearInterval(interr)
+        stopTimer()
         printScore(score)
-        index = 0;
-        score = 0;
+
     }
     function exitFullscreenHandler() {
         if (!document.fullscreenElement) {
-
+            stopTimer()
             printScore(score)
         }
     }
 
     document.addEventListener("fullscreenchange", exitFullscreenHandler);
-}
-let startjsquiz = () => {
-    let sc = 59
-    let timer = document.getElementById("timer");
-    let interr = setInterval(() => {
-        if (sc < 10) {
-            timer.innerHTML = `00:0${sc}`
+};
+const startTimercss = () => {
+
+    let timer = () => {
+        if (second < 10) {
+            document.getElementById("time").innerHTML = `00:0${second}`
         }
         else {
-            timer.innerHTML = `00:${sc}`
+            document.getElementById("time").innerHTML = `00:${second}`
         }
-        sc--
-        if (sc < 0) {
-            startjsquiz()
-            clearInterval(interr)
+        second--
+        if (second < 0) {
+            second = 10
+            startcssquiz()
         }
-        console.log(sc)
-    }, 1000)
+        console.log(second)
+    }
+    timerID = setInterval(timer, 1000)
+};
+let startcssquiz = () => {
+    stopTimer()
+    startTimercss()
+    checkAnscss()
+    printQuizcss()
+}
 
-    document.getElementById("but").setAttribute('onclick', "startjsquiz()")
-    document.getElementById("nam").innerText = "JavaScript";
-    document.querySelector(".material>p").innerText = javascriptQuizQuestion[index].question;
-    document.querySelector("#op1").innerText = javascriptQuizQuestion[index].options[0];
-    document.querySelector("#op2").innerText = javascriptQuizQuestion[index].options[1];
-    document.querySelector("#op3").innerText = javascriptQuizQuestion[index].options[2];
+const checkAnsJS = () => {
     let radios = document.querySelectorAll("input[type = 'radio']")
 
     for (let i = 0; i < radios.length; i++) {
         if (radios[i].checked) {
+            console.log(javascriptQuizQuestion[index - 1].options[i], javascriptQuizQuestion[index - 1].answer)
             let userAns = javascriptQuizQuestion[index - 1].options[i]
             let corAns = javascriptQuizQuestion[index - 1].answer;
             if (userAns === corAns) {
                 score++
             }
-
+            document.getElementById("but").disabled = true;
         }
         radios[i].checked = false;
     }
-    index++
-    if (index < javascriptQuizQuestion.length) {
+}
+const printQuizJS = () => {
 
-        document.getElementById("but").disabled = true;
+
+    if (index < javascriptQuizQuestion.length) {
+        document.getElementById("but").setAttribute('onclick', "startjsquiz()")
+        document.getElementById("nam").innerText = "JavaScript";
+        document.querySelector(".material>p").innerText = javascriptQuizQuestion[index].question;
+        document.querySelector("#op1").innerText = javascriptQuizQuestion[index].options[0];
+        document.querySelector("#op2").innerText = javascriptQuizQuestion[index].options[1];
+        document.querySelector("#op3").innerText = javascriptQuizQuestion[index].options[2];
+
+
+
+        second = 59
+        index++
 
     }
     else {
-        clearInterval(interr)
+        stopTimer()
         printScore(score)
-        score = 0;
-        index = 0;
-    }
 
+    }
     function exitFullscreenHandler() {
         if (!document.fullscreenElement) {
-
+            stopTimer()
             printScore(score)
         }
     }
 
     document.addEventListener("fullscreenchange", exitFullscreenHandler);
+};
+const startTimerJS = () => {
+
+    let timer = () => {
+        if (second < 10) {
+            document.getElementById("time").innerHTML = `00:0${second}`
+        }
+        else {
+            document.getElementById("time").innerHTML = `00:${second}`
+        }
+        second--
+        if (second < 0) {
+            second = 10
+            startjsquiz()
+        }
+        console.log(second)
+    }
+    timerID = setInterval(timer, 1000)
+};
+let startjsquiz = () => {
+    stopTimer()
+    startTimerJS()
+    checkAnsJS()
+    printQuizJS()
 }
 let disab = () => {
     document.getElementById("but").disabled = false;
@@ -626,6 +660,10 @@ let printScore = (score) => {
     div4.innerHTML = `
     <h1>Score<br />${(score / 10) * 100}%</h1>
     <button onclick="backToHome()">Home</button>`
+    score = 0
+    index = 0
+    
+    document.exitFullscreen();
 }
 let backToHome = () => {
     let div1 = document.getElementsByClassName("content")[0];
@@ -636,7 +674,7 @@ let backToHome = () => {
     div2.style.display = "none"
     div3.style.display = "none"
     div4.style.display = "none"
-    document.exitFullscreen();
+    
 
 
 }
