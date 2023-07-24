@@ -462,12 +462,16 @@ const printQuizhtml = () => {
     else {
         stopTimer()
         printScore(score)
+        index = 0;
+        score = 0;
 
     }
     function exitFullscreenHandler() {
         if (!document.fullscreenElement) {
             stopTimer()
             printScore(score)
+            index = 0;
+            score = 0;
         }
     }
 
@@ -522,7 +526,7 @@ const printQuizcss = () => {
 
 
     if (index < cssQuizQuestions.length) {
-        document.getElementById("but").setAttribute('onclick', "cssQuizQuestions()")
+        document.getElementById("but").setAttribute('onclick', "startcssquiz()")
         document.getElementById("nam").innerText = "CSS";
         document.querySelector(".material>p").innerText = cssQuizQuestions[index].question;
         document.querySelector("#op1").innerText = cssQuizQuestions[index].options[0];
@@ -538,12 +542,16 @@ const printQuizcss = () => {
     else {
         stopTimer()
         printScore(score)
+        index = 0;
+        score = 0;
 
     }
     function exitFullscreenHandler() {
         if (!document.fullscreenElement) {
             stopTimer()
             printScore(score)
+            index = 0;
+            score = 0;
         }
     }
 
@@ -610,12 +618,16 @@ const printQuizJS = () => {
     else {
         stopTimer()
         printScore(score)
+        index = 0;
+        score = 0;
 
     }
     function exitFullscreenHandler() {
         if (!document.fullscreenElement) {
             stopTimer()
             printScore(score)
+            index = 0;
+            score = 0;
         }
     }
 
@@ -662,7 +674,7 @@ let printScore = (score) => {
     <button onclick="backToHome()">Home</button>`
     score = 0
     index = 0
-    
+
     document.exitFullscreen();
 }
 let backToHome = () => {
@@ -674,7 +686,7 @@ let backToHome = () => {
     div2.style.display = "none"
     div3.style.display = "none"
     div4.style.display = "none"
-    
+
 
 
 }
